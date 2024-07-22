@@ -2,6 +2,8 @@ import { Download } from "lucide-react";
 import React from "react";
 import { motion } from "framer-motion";
 import SparklesText from "@/components/magicui/sparkles-text";
+import { RippleComponent } from "./Ripple";
+import { OrbitingCirclesDemo } from "./Orbit";
 
 interface isVisible {
   isVisible: boolean;
@@ -21,9 +23,6 @@ export const Hero = ({ isVisible }: isVisible) => {
           Frontend Developer
         </p>
         <p className="font-bold text-5xl mb-3 text-white">Hello I&apos;m</p>
-        {/* <h1 className="font-bold text-6xl text-blue-300 mb-5">
-          Lin Htet Shein
-        </h1> */}
         <SparklesText
           text="Lin Htet Shein"
           className="text-white text-6xl font-normal mb-5 text-blue-300"
@@ -42,6 +41,7 @@ export const Hero = ({ isVisible }: isVisible) => {
         </button>
         <div></div>
       </div>
+      <RippleComponent/>
     </motion.div>
   );
 };
