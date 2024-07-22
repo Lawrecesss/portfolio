@@ -20,7 +20,7 @@ export const Hero = ({ isVisible }: isVisible) => {
         <p className="mb-3 font-semibold text-white text-lg">
           Frontend Developer
         </p>
-        <p className="font-bold text-5xl mb-3 text-white">Hello I'm</p>
+        <p className="font-bold text-5xl mb-3 text-white">Hello I&apos;m</p>
         {/* <h1 className="font-bold text-6xl text-blue-300 mb-5">
           Lin Htet Shein
         </h1> */}
