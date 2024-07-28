@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="bg-black">
       <PageLadderTransition isVisible={isVisible} />
-      <div className="px-40">
+      <div className="md:px-40">
         <Header isVisible={isVisible} />
         <Hero isVisible={isVisible} />
         <CodeStacks isVisible={isVisible} />
