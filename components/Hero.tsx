@@ -25,7 +25,7 @@ export const Hero = ({ isVisible }: isVisible) => {
         <p className="font-bold text-5xl mb-3 text-white">Hello I&apos;m</p>
         <SparklesText
           text="Lin Htet Shein"
-          className="text-white text-6xl font-normal mb-5 text-blue-300"
+          className="text-6xl font-normal mb-5 text-blue-300"
         />
         <p className="text-xl text-white text-justify">
           I create intuitive and engaging digital experiences.
@@ -41,7 +41,7 @@ export const Hero = ({ isVisible }: isVisible) => {
         </button>
         <div></div>
       </div>
-      <RippleComponent/>
+      <RippleComponent />
     </motion.div>
   );
 };
