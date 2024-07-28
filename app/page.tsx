@@ -20,7 +20,7 @@ export default function Home() {
       <div className="px-40">
         <Header isVisible={isVisible} />
         <Hero isVisible={isVisible} />
-        <CodeStacks />
+        <CodeStacks isVisible={isVisible} />
       </div>
     </div>
   );

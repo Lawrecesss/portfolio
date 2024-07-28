@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import Marquee from "@/components/magicui/marquee";
+import { motion } from "framer-motion";
 
 const icons = [
   {
@@ -62,9 +62,16 @@ const ReviewCard = ({ img, icon_name }: { img: string; icon_name: string }) => {
   );
 };
 
-export default function CodeStacks() {
+export default function CodeStacks({ isVisible }: { isVisible: boolean }) {
   return (
-    <div className="relative flex h-[150px] w-full flex-col items-center justify-center overflow-hidden bg-black">
+    <motion.div
+      className={`relative flex h-[150px] w-full flex-col items-center justify-center overflow-hidden bg-black ${
+        isVisible ? "hidden" : "block"
+      }`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1.8, duration: 1 }}
+    >
       <Marquee className="[--duration:20s]">
         {icons.map((review) => (
           <ReviewCard key={review.id} {...review} />
@@ -72,6 +79,6 @@ export default function CodeStacks() {
       </Marquee>
       <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black"></div>
       <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-black "></div>
-    </div>
+    </motion.div>
   );
 }

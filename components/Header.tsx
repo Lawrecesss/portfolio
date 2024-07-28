@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
 import { GithubIcon, LinkedinIcon } from "lucide-react";
 
-interface isVisible {
-  isVisible: boolean;
-}
-export default function Header({ isVisible }: isVisible) {
+export default function Header({ isVisible }: { isVisible: boolean }) {
   return (
     <motion.div
       className={`grid grid-cols-2 h-20 items-center ${

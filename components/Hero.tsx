@@ -5,10 +5,7 @@ import SparklesText from "@/components/magicui/sparkles-text";
 import { RippleComponent } from "./Ripple";
 import { OrbitingCirclesDemo } from "./Orbit";
 
-interface isVisible {
-  isVisible: boolean;
-}
-export const Hero = ({ isVisible }: isVisible) => {
+export const Hero = ({ isVisible }: { isVisible: boolean }) => {
   return (
     <motion.div
       className={`grid grid-cols-2 h-screen items-center -my-20 ${
