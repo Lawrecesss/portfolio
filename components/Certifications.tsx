@@ -1,5 +1,6 @@
 import React from "react";
 import Certificates from "./Certificates";
+import { stringify } from "querystring";
 
 const Certifications = () => {
   const no_of_certification = 2;
@@ -10,7 +11,7 @@ const Certifications = () => {
       </h3>
       <div
         className={`grid md:grid-cols-${
-          no_of_certification > 2 ? 3 : no_of_certification
+          no_of_certification > 2 ? "3" : no_of_certification.toString()
         } justify-center`}
       >
         <Certificates certificate="CS50" image="" />
