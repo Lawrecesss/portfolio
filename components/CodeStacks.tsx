@@ -44,8 +44,8 @@ const ReviewCard = ({ img, icon_name }: { img: string; icon_name: string }) => {
     <div className="flex flex-row items-center gap-5 p-4">
       <img
         className="rounded-md"
-        width="60"
-        height="60"
+        width="48"
+        height="48"
         alt={icon_name}
         src={img}
       />

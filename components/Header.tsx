@@ -4,7 +4,7 @@ import { GithubIcon, LinkedinIcon } from "lucide-react";
 export default function Header({ isVisible }: { isVisible: boolean }) {
   return (
     <motion.div
-      className={`sticky top-0 z-10 grid grid-cols-2 h-20 items-center ${
+      className={`sticky top-0 z-20 grid grid-cols-2 h-20 bg-black items-center ${
         isVisible ? "hidden" : "block"
       }`}
       initial={{ opacity: 0 }}

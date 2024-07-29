@@ -20,17 +20,20 @@ export const Hero = ({ isVisible }: { isVisible: boolean }) => {
           Frontend Developer
         </p>
         <p className="font-bold text-5xl mb-3 text-white">Hello I&apos;m</p>
-        <SparklesText
+        {/* <SparklesText
           text="Lin Htet Shein"
           className="text-6xl font-normal mb-5 text-blue-300"
-        />
+        /> */}
+        <p className="pointer-events-none z-10 whitespace-pre-wrap bg-gradient-to-b from-white to-gray-500 bg-clip-text text-8xl font-bold leading-none tracking-tighter text-transparent ">
+          Lin Htet Shein
+        </p>
         <p className="text-xl text-white text-justify">
           I create intuitive and engaging digital experiences.
         </p>
         <p className="text-xl text-white text-justify mb-5">
           I am proficient in developing responsive web solutions.
         </p>
-        <button className="rounded-full bg-blue-300 py-2 px-5 text-black font-semibold">
+        <button className="rounded-full whitespace-pre-wrap bg-gradient-to-b from-gray-500 to-white py-2 px-5 text-black font-semibold">
           <div className="flex gap-3">
             <p>Download CV</p>
             <Download size={20} />
