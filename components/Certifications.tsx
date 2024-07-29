@@ -3,7 +3,7 @@ import Certificates from "./Certificates";
 import { stringify } from "querystring";
 
 const Certifications = () => {
-  const no_of_certification = 2;
+  const no_of_certification = "2";
   return (
     <div>
       <h3 className="my-20 bg-gradient-to-b from-white to-gray-700 bg-clip-text text-center text-6xl font-bold leading-none text-transparent">
@@ -11,7 +11,7 @@ const Certifications = () => {
       </h3>
       <div
         className={`grid md:grid-cols-${
-          no_of_certification > 2 ? "3" : no_of_certification.toString()
+          no_of_certification > "2" ? "3" : no_of_certification
         } justify-center`}
       >
         <Certificates certificate="CS50" image="" />
