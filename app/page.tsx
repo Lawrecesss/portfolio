@@ -6,6 +6,7 @@ import PageLadderTransition from "@/components/PageLadderTransition";
 import CodeStacks from "@/components/CodeStacks";
 import AboutMe from "@/components/AboutMe";
 import Certifications from "@/components/Certifications";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(true);
@@ -25,6 +26,7 @@ export default function Home() {
         <CodeStacks isVisible={isVisible} />
         <AboutMe />
         <Certifications />
+        <Footer />
       </div>
     </div>
   );
