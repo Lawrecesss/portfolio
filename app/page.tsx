@@ -1,12 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
-import Header from "@/components/Header";
-import { Hero } from "@/components/Hero";
+import Header from "@/components/pages/Header";
+import { Hero } from "@/components/pages/Hero";
 import PageLadderTransition from "@/components/ui/PageLadderTransition";
-import CodeStacks from "@/components/CodeStacks";
-import AboutMe from "@/components/AboutMe";
-import Certifications from "@/components/Certifications";
-import { Footer } from "@/components/Footer";
+import CodeStacks from "@/components/ui/CodeStacks";
+import AboutMe from "@/components/pages/AboutMe";
+import Certifications from "@/components/pages/Certifications";
+import { Footer } from "@/components/pages/Footer";
 import Background from "@/components/ui/Background";
 
 export default function Home() {
