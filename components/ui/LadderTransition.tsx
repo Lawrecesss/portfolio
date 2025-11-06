@@ -2,8 +2,8 @@
 import { motion } from "framer-motion";
 
 interface Duration {
-  duration: Number;
-  delay?: Number;
+  duration: number;
+  delay?: number;
 }
 export default function LadderTransition({ duration, delay }: Duration) {
   return (
