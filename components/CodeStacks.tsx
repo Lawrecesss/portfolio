@@ -56,7 +56,7 @@ const ReviewCard = ({ img, icon_name }: { img: string; icon_name: string }) => {
 export default function CodeStacks({ isVisible }: { isVisible: boolean }) {
   return (
     <motion.div
-      className={`relative flex h-[150px] w-full flex-col items-center justify-center overflow-hidden bg-black ${
+      className={`relative flex h-[150px] w-full flex-col mt-20 items-center justify-center overflow-hidden  ${
         isVisible ? "hidden" : "block"
       }`}
       initial={{ opacity: 0 }}
@@ -70,8 +70,8 @@ export default function CodeStacks({ isVisible }: { isVisible: boolean }) {
           ))}
         </Marquee>
       </div>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-black "></div>
+      {/* <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-black "></div> */}
     </motion.div>
   );
 }

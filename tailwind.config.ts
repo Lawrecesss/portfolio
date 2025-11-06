@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -18,23 +18,22 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        fugaz: ["Fugaz One", "sans-serif"],
+        offside: ["Offside", "sans-serif"],
+      },
       backgroundImage: {
-        'custom-gradient': 'linear-gradient(90deg, rgba(238,255,181,1) 0%, rgba(158,255,215,1) 80%, rgba(204,255,0,1) 100%)',
+        "custom-gradient":
+          "linear-gradient(90deg, rgba(238,255,181,1) 0%, rgba(158,255,215,1) 80%, rgba(204,255,0,1) 100%)",
       },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
+        background: "#000000",
         foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
+        primary: "#111111",
+        secondary: "#b19eef",
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -103,7 +102,7 @@ const config = {
               "rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)",
           },
         },
-        imgRipple:{
+        imgRipple: {
           "0%, 100%": {
             transform: "translate(0%, 0%) scale(1)",
           },
@@ -136,7 +135,8 @@ const config = {
       animation: {
         meteor: "meteor 5s linear infinite",
         grid: "grid 15s linear infinite",
-        imgRipple: "imgRipple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
+        imgRipple:
+          "imgRipple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
         orbit: "orbit calc(var(--duration)*1s) linear infinite",
         ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
         gradient: "gradient 8s linear infinite",
@@ -148,6 +148,6 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;

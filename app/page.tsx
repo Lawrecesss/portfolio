@@ -2,11 +2,12 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import PageLadderTransition from "@/components/PageLadderTransition";
+import PageLadderTransition from "@/components/ui/PageLadderTransition";
 import CodeStacks from "@/components/CodeStacks";
 import AboutMe from "@/components/AboutMe";
 import Certifications from "@/components/Certifications";
 import { Footer } from "@/components/Footer";
+import Background from "@/components/ui/Background";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(true);
@@ -20,12 +21,13 @@ export default function Home() {
   return (
     <div className="bg-black">
       <PageLadderTransition isVisible={isVisible} />
+      <Background isVisible={isVisible} />
       <div className="md:px-40">
         <Header isVisible={isVisible} />
         <Hero isVisible={isVisible} />
         <CodeStacks isVisible={isVisible} />
-        <AboutMe />
-        <Certifications />
+        <AboutMe isVisible={isVisible} />
+        {/* <Certifications /> */}
         <Footer />
       </div>
     </div>

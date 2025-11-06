@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Nunito } from "next/font/google";
+import { Offside } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
-const nunito = Nunito({ subsets: ["latin"] });
+const offside = Offside({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={nunito.className}>{children}</body>
+      <body className={offside.className}>{children}</body>
     </html>
   );
 }

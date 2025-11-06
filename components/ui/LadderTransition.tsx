@@ -12,7 +12,7 @@ export default function LadderTransition({ duration, delay }: Duration) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: duration, delay: delay }}
     >
-      <div className="block bg-black h-screen"></div>
+      <div className="bg-black h-screen"></div>
     </motion.div>
   );
 }

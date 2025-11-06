@@ -1,47 +1,42 @@
 import { Download } from "lucide-react";
 import React from "react";
 import { motion } from "framer-motion";
-import SparklesText from "@/components/magicui/sparkles-text";
-import { RippleComponent } from "./Ripple";
-import { OrbitingCirclesDemo } from "./Orbit";
+import { Fugaz_One } from "next/font/google";
+import { GithubIcon, LinkedinIcon } from "lucide-react";
 
+const fugaz = Fugaz_One({ subsets: ["latin"], weight: "400" });
 export const Hero = ({ isVisible }: { isVisible: boolean }) => {
   return (
     <motion.div
-      className={`grid grid-cols-2 h-screen items-center -my-20 ${
+      className={`h-screen items-center -my-20 ${
         isVisible ? "hidden" : "block"
       }`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.8, duration: 1 }}
     >
-      <div>
-        <p className="mb-3 font-semibold text-white text-lg">
-          Frontend Developer
+      <div className="absolute top-80 left-1/2 z-20 -translate-x-1/2 text-center">
+        <p
+          className={`${fugaz.className} mb-8 font-semibold text-white text-7xl`}
+        >
+          frontend developer
         </p>
-        <p className="font-bold text-5xl mb-3 text-white">Hello I&apos;m</p>
-        {/* <SparklesText
-          text="Lin Htet Shein"
-          className="text-6xl font-normal mb-5 text-blue-300"
-        /> */}
-        <p className="pointer-events-none z-10 whitespace-pre-wrap bg-gradient-to-b from-white to-gray-500 bg-clip-text text-8xl font-bold leading-none tracking-tighter text-transparent ">
-          Lin Htet Shein
+        <p className="text-lg text-white text-center px-14">
+          I create intuitive and engaging digital experiences. I am proficient
+          in developing responsive web solutions.
         </p>
-        <p className="text-xl text-white text-justify">
-          I create intuitive and engaging digital experiences.
-        </p>
-        <p className="text-xl text-white text-justify mb-5">
-          I am proficient in developing responsive web solutions.
-        </p>
-        <button className="rounded-full whitespace-pre-wrap bg-gradient-to-b from-gray-500 to-white py-2 px-5 text-black font-semibold">
-          <div className="flex gap-3">
-            <p>Download CV</p>
-            <Download size={20} />
-          </div>
-        </button>
-        <div></div>
+        <div className="flex gap-10 justify-center items-center mt-5 text-white">
+          <GithubIcon color="white" />
+          <LinkedinIcon color="white" />
+          <button className="rounded-full py-2 px-5 bg-white text-black font-medium">
+            <div className="flex gap-3 items-center">
+              <Download size={16} />
+              <p>Resume</p>
+            </div>
+          </button>
+        </div>
       </div>
-      <RippleComponent />
+      {/* // <RippleComponent /> */}
     </motion.div>
   );
 };
