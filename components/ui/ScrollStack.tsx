@@ -15,7 +15,7 @@ export const ScrollStackItem: React.FC<ScrollStackItemProps> = ({
 }) => (
   <SpotlightCard
     className={`scroll-stack-card relative w-full h-96 p-10 rounded-[40px] shadow-[0_0_30px_rgba(0,0,0,0.1)] box-border origin-top will-change-transform ${itemClassName}`.trim()}
-    spotlightColor="rgba(192, 192, 192, 0.4)"
+    spotlightColor="rgba(192, 192, 192, 0.3)"
   >
     {children}
   </SpotlightCard>

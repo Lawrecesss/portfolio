@@ -6,7 +6,7 @@ import CodeStacks from "../ui/CodeStacks";
 const AboutMe = ({ isVisible }: { isVisible: boolean }) => {
   return (
     <motion.div
-      className={`relative ${isVisible ? "hidden" : "block"}`}
+      className={`relative ${isVisible ? "hidden" : "block"} h-screen`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.8, duration: 1 }}
