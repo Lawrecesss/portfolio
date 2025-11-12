@@ -18,7 +18,7 @@ export default function Header({ isVisible }: { isVisible: boolean }) {
       <div className={`text-white ${fugaz.className} font-bold text-3xl`}>
         linhtetshein
       </div>
-      <ul className="flex items-center justify-center gap-10 text-white">
+      <ul className="items-center justify-center gap-10 text-white hidden lg:flex">
         <li>About Me</li>
         <li>Certifications</li>
         <li>Projects</li>

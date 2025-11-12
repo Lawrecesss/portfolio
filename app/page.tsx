@@ -24,7 +24,7 @@ export default function Home() {
     <div className="bg-black">
       <PageLadderTransition isVisible={isVisible} />
       <Background isVisible={isVisible} />
-      <div className="md:px-40">
+      <div className="px-10 md:px-40">
         <Header isVisible={isVisible} />
         <Hero isVisible={isVisible} />
         <AboutMe isVisible={isVisible} />

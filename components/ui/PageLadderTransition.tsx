@@ -4,7 +4,7 @@ interface isVisible {
 }
 export default function PageLadderTransition({ isVisible }: isVisible) {
   return (
-    <div className={`grid grid-cols-5 ${isVisible ? "" : "hidden"} bg-white`}>
+    <div className={`grid grid-cols-5 ${isVisible ? "" : "hidden"} bg-white `}>
       <LadderTransition duration={1} delay={0} />
       <LadderTransition duration={1} delay={0.2} />
       <LadderTransition duration={1} delay={0.4} />

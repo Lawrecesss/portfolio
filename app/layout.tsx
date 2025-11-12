@@ -13,9 +13,9 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={offside.className}>
-        <Providers>{children}</Providers>
+    <html lang="en" className="h-full scroll-smooth">
+      <body className={`${offside.className}`}>
+        <main className="relative">{children}</main>
       </body>
     </html>
   );

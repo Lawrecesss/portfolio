@@ -30,7 +30,7 @@ const cards = [
     miniTitle: "A Tiny UNIX Shell implemented in C",
     description:
       "minishell is a minimal shell implemented in C, designed to replicate the basic behavior of bash. It handles commands, redirections, pipes, environment variables, and signal handling, offering a fully functional interactive shell experience.",
-    imageUrl: "bg",
+    imageUrl: "",
     techIconUrl: [
       "https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg",
       "https://www.vectorlogo.zone/logos/linux/linux-icon.svg",
@@ -96,7 +96,7 @@ const ProjectCard = (props: ProjectCardProps) => {
         </div>
       </div>
       <div className="flex items-center justify-center w-full">
-        {props.imageUrl !== "bg" ? (
+        {props.imageUrl !== "" ? (
           <img
             src={props.imageUrl}
             alt={props.title}
@@ -119,15 +119,15 @@ const Projects = ({ isVisible }: { isVisible: boolean }) => {
       transition={{ delay: 1.8, duration: 1 }}
     >
       <div className="bg-black">
-        <h2 className="text-5xl font-bold text-white text-center mt-20">
+        <h2 className="text-3xl sm:text-5xl font-bold text-white text-center mt-20">
           Projects
         </h2>
 
-        <div className="container flex flex-col h-full py-[60px]">
+        <div className="flex flex-col h-full py-[60px]">
           {cards.map((card, idx) => (
             <SpotlightCard
               key={idx}
-              className="scroll-stack-card rounded-[40px] shadow-[0_0_30px_rgba(0,0,0,0.1)] box-border origin-top will-change-transform w-full mb-10 sticky top-[150px]"
+              className="scroll-stack-card rounded-[40px] shadow-[0_0_30px_rgba(0,0,0,0.1)] box-border origin-top will-change-transform w-full max-w-full mb-10 sticky top-[150px] mx-auto"
               spotlightColor="rgba(192,192,192,0.08)"
             >
               <ProjectCard {...card} />
