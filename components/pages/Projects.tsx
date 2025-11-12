@@ -77,12 +77,18 @@ const TechIcons = ({ iconUrl }: { iconUrl: string[] }) => {
 
 const ProjectCard = (props: ProjectCardProps) => {
   return (
-    <div className="flex flex-row justify-center gap-10">
+    <div className="flex flex-row justify-center items-center gap-10">
       <div>
-        <h2 className="text-4xl font-bold text-white">{props.title}</h2>
-        <p className="text-muted text-base mt-1">{props.miniTitle}</p>
-        <div className="mt-5 w-[600px] h-[150px]">
-          <p className="text-white text-lg text-justify">{props.description}</p>
+        <h2 className="text-2xl sm:text-4xl font-bold text-white">
+          {props.title}
+        </h2>
+        <p className="text-muted text-sm sm:text-base mt-1">
+          {props.miniTitle}
+        </p>
+        <div className="mt-5 lg:w-[600px] xl:w-[800px] h-[250px]">
+          <p className="text-white md:text-lg text-justify">
+            {props.description}
+          </p>
         </div>
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-2 mt-4 items-center">
@@ -95,7 +101,7 @@ const ProjectCard = (props: ProjectCardProps) => {
           </button>
         </div>
       </div>
-      <div className="flex items-center justify-center w-full">
+      <div className="items-center justify-center w-full hidden lg:flex">
         {props.imageUrl !== "" ? (
           <img
             src={props.imageUrl}
