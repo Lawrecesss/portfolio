@@ -1,4 +1,3 @@
-"use client";
 import { motion } from "framer-motion";
 import Meteors from "@/components/magicui/meteors";
 import CodeStacks from "../ui/CodeStacks";
@@ -8,7 +7,7 @@ const AboutMe = ({ isVisible }: { isVisible: boolean }) => {
     <motion.div
       className={`relative ${
         isVisible ? "hidden" : "block"
-      } h-screen flex items-center`}
+      } h-screen mb-10 flex items-center`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.8, duration: 1 }}

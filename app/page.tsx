@@ -9,6 +9,7 @@ import Certifications from "@/components/pages/Certifications";
 import { Footer } from "@/components/ui/Footer";
 import Background from "@/components/ui/Background";
 import Projects from "@/components/pages/Projects";
+import Skills from "@/components/pages/Skills";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(true);
@@ -28,6 +29,7 @@ export default function Home() {
         <Hero isVisible={isVisible} />
         <AboutMe isVisible={isVisible} />
         {/* <Certifications /> */}
+        <Skills isVisible={isVisible} />
         <Projects isVisible={isVisible} />
         <Footer isVisible={isVisible} />
       </div>
