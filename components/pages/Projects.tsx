@@ -21,8 +21,7 @@ const cards = [
       "Built to render simple 3D scenes using ray tracing principles and fundamental concepts of computer graphics — including rays, lighting, reflection, and shading — while focusing on mathematical precision and clean architecture.",
     imageUrl: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
     techIconUrl: [
-      "https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg",
-      "https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg",
+      "https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg",
     ],
     status: "Completed 📦",
   },
@@ -33,8 +32,8 @@ const cards = [
       "minishell is a minimal shell implemented in C, designed to replicate the basic behavior of bash. It handles commands, redirections, pipes, environment variables, and signal handling, offering a fully functional interactive shell experience.",
     imageUrl: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
     techIconUrl: [
-      "https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg",
-      "https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg",
+      "https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg",
+      "https://www.vectorlogo.zone/logos/linux/linux-icon.svg",
     ],
     status: "Completed 📦",
   },
@@ -45,8 +44,8 @@ const cards = [
       "A real-time messaging app that breaks language barriers through instant message translation. Automatically translates messages into each user’s preferred language — seamlessly and naturally.",
     imageUrl: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
     techIconUrl: [
-      "https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg",
-      "https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg",
+      "https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg",
+      "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
     ],
     status: "Completed 📦",
   },
@@ -84,7 +83,7 @@ const ProjectCard = (props: ProjectCardProps) => {
         <p className="text-muted text-base mt-1">{props.miniTitle}</p>
         <div className="mt-5 w-[600px] h-[150px]">
           <p className="text-white text-lg text-justify">{props.description}</p>
-          <p className="text-white text-lg mt-5">status : {props.status}</p>
+          {/* <p className="text-white text-lg mt-5">status : {props.status}</p> */}
         </div>
         <div className="flex flex-row gap-2 mt-4 items-center">
           <TechIcons iconUrl={props.techIconUrl} />

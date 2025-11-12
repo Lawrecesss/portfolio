@@ -8,7 +8,7 @@ const fugaz = Fugaz_One({ subsets: ["latin"], weight: "400" });
 export default function Header({ isVisible }: { isVisible: boolean }) {
   return (
     <motion.div
-      className={`sticky top-0 z-20 grid grid-flow-col h-20 items-center justify-between  ${
+      className={`relative z-20 grid grid-flow-col h-20 items-center justify-between  ${
         isVisible ? "hidden" : "block"
       }`}
       initial={{ opacity: 0 }}
