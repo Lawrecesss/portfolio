@@ -85,7 +85,7 @@ const ProjectCard = (props: ProjectCardProps) => {
         <p className="text-muted text-sm sm:text-base mt-1">
           {props.miniTitle}
         </p>
-        <div className="mt-5 lg:w-[600px] xl:w-[800px] h-[250px]">
+        <div className="mt-5 lg:w-[600px] 2xl:w-[900px] h-[250px] lg:h[150px]">
           <p className="text-white md:text-lg text-justify">
             {props.description}
           </p>
@@ -109,7 +109,7 @@ const ProjectCard = (props: ProjectCardProps) => {
             className="h-[304px] box-border"
           />
         ) : (
-          <></>
+          <div className="h-[304px] box-border"></div>
         )}
       </div>
     </div>
@@ -133,8 +133,8 @@ const Projects = ({ isVisible }: { isVisible: boolean }) => {
           {cards.map((card, idx) => (
             <SpotlightCard
               key={idx}
-              className="scroll-stack-card rounded-[40px] shadow-[0_0_30px_rgba(0,0,0,0.1)] box-border origin-top will-change-transform w-full max-w-full mb-10 sticky top-[150px] mx-auto"
-              spotlightColor="rgba(192,192,192,0.08)"
+              className="scroll-stack-card rounded-[40px] h-[480px] shadow-[0_0_30px_rgba(0,0,0,0.1)] box-border origin-top will-change-transform w-full max-w-full mb-10 sticky top-[150px] mx-auto"
+              spotlightColor="rgba(192,192,192,0.3)"
             >
               <ProjectCard {...card} />
             </SpotlightCard>
