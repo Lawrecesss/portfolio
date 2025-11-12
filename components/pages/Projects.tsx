@@ -1,6 +1,5 @@
-import ScrollStack, { ScrollStackItem } from "@/components/ui/ScrollStack";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 import { motion } from "framer-motion";
-import LetterGlitch from "@/components/ui/LetterGlitch";
 
 const cards = [
   {
@@ -120,17 +119,20 @@ const Projects = ({ isVisible }: { isVisible: boolean }) => {
       transition={{ delay: 1.8, duration: 1 }}
     >
       <div className="bg-black">
-        <h2 className="text-5xl font-bold text-white mb-20 text-center">
+        <h2 className="text-5xl font-bold text-white text-center mt-20">
           Projects
         </h2>
-        <div className="container mx-auto">
-          <ScrollStack itemStackDistance={0} stackPosition="20%">
-            {cards.map((card, index) => (
-              <ScrollStackItem key={index} itemClassName="">
-                <ProjectCard {...card} />
-              </ScrollStackItem>
-            ))}
-          </ScrollStack>
+
+        <div className="container flex flex-col h-full py-[60px]">
+          {cards.map((card, idx) => (
+            <SpotlightCard
+              key={idx}
+              className="scroll-stack-card rounded-[40px] shadow-[0_0_30px_rgba(0,0,0,0.1)] box-border origin-top will-change-transform w-full mb-10 sticky top-[150px]"
+              spotlightColor="rgba(192,192,192,0.08)"
+            >
+              <ProjectCard {...card} />
+            </SpotlightCard>
+          ))}
         </div>
       </div>
     </motion.div>
