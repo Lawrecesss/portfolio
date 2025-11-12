@@ -31,8 +31,16 @@ const icons = [
     img: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
   },
   {
-    icon_name: "mongodb",
-    img: "https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg",
+    icon_name: "c",
+    img: "https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg",
+  },
+  {
+    icon_name: "c++",
+    img: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg",
+  },
+  {
+    icon_name: "flutter",
+    img: "https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg",
   },
   {
     icon_name: "nodejs",

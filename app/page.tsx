@@ -29,7 +29,7 @@ export default function Home() {
         <Hero isVisible={isVisible} />
         <AboutMe isVisible={isVisible} />
         {/* <Certifications /> */}
-        <Skills isVisible={isVisible} />
+        {/* <Skills isVisible={isVisible} /> */}
         <Projects isVisible={isVisible} />
         <Footer isVisible={isVisible} />
       </div>

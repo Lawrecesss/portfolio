@@ -85,8 +85,15 @@ const ProjectCard = (props: ProjectCardProps) => {
         <div className="mt-5 w-[600px] h-[150px]">
           <p className="text-white text-lg text-justify">{props.description}</p>
         </div>
-        <div className="flex flex-row gap-2 mt-4 items-center">
-          {props.techIconUrl && <TechIcons iconUrl={props.techIconUrl} />}
+        <div className="flex flex-row justify-between">
+          <div className="flex flex-row gap-2 mt-4 items-center">
+            {props.techIconUrl && <TechIcons iconUrl={props.techIconUrl} />}
+          </div>
+          <button className="rounded-lg border mt-9 border-neutral-700 py-2 px-2 h-10 text-white text-sm">
+            <div className="flex gap-3 items-center">
+              <p>View Project</p>
+            </div>
+          </button>
         </div>
       </div>
       <div className="flex items-center justify-center w-full">
@@ -97,16 +104,7 @@ const ProjectCard = (props: ProjectCardProps) => {
             className="h-[304px] box-border"
           />
         ) : (
-          <div className="w-full">
-            <LetterGlitch
-              glitchColors={["#2b4539", "#61dca3", "#61b3dc"]}
-              glitchSpeed={50}
-              centerVignette={false}
-              outerVignette={true}
-              smooth={true}
-              characters={props.title}
-            />
-          </div>
+          <></>
         )}
       </div>
     </div>
