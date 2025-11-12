@@ -14,7 +14,7 @@ export default function Background({ isVisible }: { isVisible: boolean }) {
   const [color2, setColor2] = useState("");
   const userColors = [color0, color1, color2].filter(Boolean);
   return (
-    <div className={"w-screen h-screen absolute inset-0"}>
+    <div className={"h-screen absolute inset-0"}>
       <PrismaticBurst
         animationType="rotate3d"
         intensity={intensity}
