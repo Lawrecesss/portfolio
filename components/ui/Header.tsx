@@ -19,13 +19,27 @@ export default function Header({ isVisible }: { isVisible: boolean }) {
         linhtetshein
       </div>
       <ul className="items-center justify-center gap-10 text-white hidden lg:flex">
-        <li>About Me</li>
-        <li>Certifications</li>
-        <li>Projects</li>
+        <li className="cursor-pointer hover:opacity-80 transition-opacity" onClick={() => document.getElementById('about-me')?.scrollIntoView({ behavior: 'smooth' })}>About Me</li>
+        <li className="cursor-pointer hover:opacity-80 transition-opacity" onClick={() => document.getElementById('certifications')?.scrollIntoView({ behavior: 'smooth' })}>Certifications</li>
+        <li className="cursor-pointer hover:opacity-80 transition-opacity" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>Projects</li>
       </ul>
       <div className="grid grid-cols-2 gap-10 items-center justify-center text-white">
-        <GithubIcon color="white" />
-        <LinkedinIcon color="white" />
+        <a 
+          href="https://github.com/Lawrecesss" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="cursor-pointer hover:opacity-80 transition-opacity"
+        >
+          <GithubIcon color="white" />
+        </a>
+        <a 
+          href="https://linkedin.com/in/lin-htet-shein" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="cursor-pointer hover:opacity-80 transition-opacity"
+        >
+          <LinkedinIcon color="white" />
+        </a>
       </div>
     </motion.div>
   );
