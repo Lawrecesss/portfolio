@@ -8,32 +8,50 @@ const fugaz = Fugaz_One({ subsets: ["latin"], weight: "400" });
 export const Hero = ({ isVisible }: { isVisible: boolean }) => {
   return (
     <motion.div
-      className={`h-screen items-center -my-20 ${
+      className={`h-screen flex items-center justify-center -mx-10 md:-mx-32 lg:-mx-40 -my-20 ${
         isVisible ? "hidden" : "block"
       }`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.8, duration: 1 }}
     >
-      <div className="absolute top-80 sm:top-96 left-1/2 z-20 -translate-x-1/2 text-center">
+      <div className="text-center w-full px-4 sm:px-8">
         <p
           className={`${fugaz.className} mb-8 font-semibold text-white text-5xl sm:text-7xl`}
         >
-          frontend developer
+          software developer
         </p>
-        <p className="text-xs md:text-lg text-white sm:text-center sm:px-14">
-          I create intuitive and engaging digital experiences. I am proficient
-          in developing responsive web solutions.
+        <p className="text-xs md:text-lg text-white text-center max-w-3xl mx-auto px-6">
+          I design and develop efficient, scalable software systems. I am proficient in writing clean, maintainable code and building solutions that deliver reliability and strong performance.
         </p>
         <div className="flex flex-row gap-5 sm:gap-10 justify-center items-center mt-4 sm:mt-5 text-white">
-          <GithubIcon color="white" />
-          <LinkedinIcon color="white" />
-          <button className="rounded-full p-2 sm:px-5 bg-white text-black font-medium">
+          <a 
+            href="https://github.com/Lawrecesss" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="cursor-pointer hover:opacity-80 transition-opacity"
+          >
+            <GithubIcon color="white" />
+          </a>
+          <a 
+            href="https://linkedin.com/in/lin-htet-shein" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="cursor-pointer hover:opacity-80 transition-opacity"
+          >
+            <LinkedinIcon color="white" />
+          </a>
+          <a 
+            href="/linhtetshein(resume).pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="rounded-full p-2 sm:px-5 bg-white text-black font-medium hover:bg-gray-100 transition-colors inline-block"
+          >
             <div className="flex gap-2 sm:gap-3 items-center">
               <Download size={16} />
               <p className="text-xs sm:text-base">Resume</p>
             </div>
-          </button>
+          </a>
         </div>
       </div>
       {/* // <RippleComponent /> */}

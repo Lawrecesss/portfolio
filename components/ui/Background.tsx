@@ -30,8 +30,8 @@ export default function Background({ isVisible }: { isVisible: boolean }) {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8, duration: 1 }}
       >
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black"></div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-black "></div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/5 sm:w-1/3 bg-gradient-to-r from-black"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/5 sm:w-1/3 bg-gradient-to-l from-black "></div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-black"></div>
       </motion.div>
     </div>
