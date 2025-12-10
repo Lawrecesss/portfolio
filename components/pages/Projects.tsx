@@ -172,7 +172,7 @@ const Projects = ({ isVisible }: { isVisible: boolean }) => {
           {cards.map((card, idx) => (
             <div key={idx} className="sticky top-[100px] mb-8">
               <ShineBorder
-                className="w-full min-h-[580px] xl:min-h-0 rounded-3xl bg-black/50 backdrop-blur-sm md:shadow-xl p-8"
+                className="w-full min-h-[600px] xl:min-h-0 rounded-3xl bg-black/50 backdrop-blur-sm md:shadow-xl p-8"
                 color={["#A07CFE", "#7C9EFE", "#5EBBFF"]}
               >
                 <ProjectCard {...card} />
