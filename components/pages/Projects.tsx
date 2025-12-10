@@ -33,7 +33,7 @@ const cards = [
     title: "Minishell",
     miniTitle: "A Tiny UNIX Shell implemented in C",
     description:
-      "minishell is a minimal shell implemented in C, designed to replicate the basic behavior of bash. It handles commands, redirections, pipes, environment variables, and signal handling, offering a fully functional interactive shell experience.",
+      "A shell implemented in C, designed to replicate the basic behavior of bash. It handles commands, redirections, pipes, environment variables, and signal handling, offering a fully functional interactive shell experience.",
     imageUrl: "",
     techIconUrl: [
       "https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg",
@@ -93,7 +93,7 @@ const ProjectCard = (props: ProjectCardProps) => {
     <div className="flex flex-col lg:flex-row justify-center items-start gap-10 p-6 h-full">
       <div className="flex-1 flex flex-col h-full">
         <div className="flex items-center gap-3 mb-2">
-          <h2 className="text-2xl sm:text-4xl font-bold text-white">
+          <h2 className="text-xl sm:text-4xl font-bold text-white">
             {props.title}
           </h2>
           {props.status && (
