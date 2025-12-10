@@ -1,5 +1,6 @@
 import Marquee from "@/components/magicui/marquee";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const icons = [
   {
@@ -50,10 +51,13 @@ const icons = [
 const ReviewCard = ({ img, icon_name }: { img: string; icon_name: string }) => {
   return (
     <div className="items-center p-2 sm:px-4">
-      <img
+      <Image
         className="rounded-md w-10 h-10 sm:w-12 sm:h-12 object-contain"
         alt={icon_name}
         src={img}
+        width={48}
+        height={48}
+        unoptimized
       />
     </div>
   );

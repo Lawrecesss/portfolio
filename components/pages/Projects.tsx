@@ -1,6 +1,7 @@
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import { motion } from "framer-motion";
 import ShineBorder from "@/components/magicui/shine-border";
+import Image from "next/image";
 
 const cards = [
   {
@@ -14,6 +15,7 @@ const cards = [
       "https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg",
     ],
     status: "In Progress ⚙️",
+    projectUrl: "https://github.com/Mess925/RUN",
   },
   {
     title: "MiniRT",
@@ -25,6 +27,7 @@ const cards = [
       "https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg",
     ],
     status: "Completed 📦",
+    projectUrl: "https://github.com/Mess925/MiniRT",
   },
   {
     title: "Minishell",
@@ -37,6 +40,7 @@ const cards = [
       "https://www.vectorlogo.zone/logos/linux/linux-icon.svg",
     ],
     status: "Completed 📦",
+    projectUrl: "https://github.com/thanthtetaung4/mini_shell",
   },
   {
     title: "TeleBird",
@@ -49,6 +53,7 @@ const cards = [
       "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
     ],
     status: "Completed 📦",
+    projectUrl: "https://github.com/Lawrecesss/TeleBird",
   },
 ];
 
@@ -70,7 +75,7 @@ const TechIcons = ({ iconUrl }: { iconUrl: string[] }) => {
           key={index}
           className="w-10 h-10 p-2 rounded-lg bg-neutral-900 border border-neutral-700 hover:border-purple-500/50 transition-colors duration-300 flex items-center justify-center"
         >
-          <img src={url} className="w-6 h-6" alt="tech icon" />
+          <Image src={url} width={24} height={24} className="w-6 h-6" alt="tech icon" unoptimized />
         </div>
       ))}
     </>
@@ -129,9 +134,11 @@ const ProjectCard = (props: ProjectCardProps) => {
       <div className="hidden lg:flex items-center justify-center lg:w-[45%] w-full">
         {props.imageUrl !== "" ? (
           <div className="relative group w-full">
-            <img
+            <Image
               src={props.imageUrl}
               alt={props.title}
+              width={500}
+              height={304}
               className="w-full h-[250px] lg:h-[304px] object-cover rounded-xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

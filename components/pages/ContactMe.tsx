@@ -13,7 +13,7 @@ const ContactMe = ({ isVisible }: { isVisible: boolean }) => {
       transition={{ delay: 1.8, duration: 1 }}
     >
       <h2 className="text-4xl sm:text-6xl font-bold text-center mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-        Let's Connect
+        Let&apos;s Connect
       </h2>
       <p className="text-center text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
         Feel free to reach out for collaborations, opportunities, or just a friendly chat!
