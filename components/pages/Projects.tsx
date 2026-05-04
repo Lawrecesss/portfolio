@@ -5,41 +5,38 @@ import Image from "next/image";
 
 const cards = [
   {
-    title: "RUN",
-    miniTitle: "Cross-platform Mobile App",
+    title: "VidA",
+    miniTitle: "AI-Powered Multimodal Video Analysis Tool",
     description:
-      "A mobile running app to track your runs and stay motivated! Run with your own group and compete with others.",
-    imageUrl: "/images/run.png",
-    techIconUrl: [
-      "https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg",
-      "https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg",
-    ],
-    status: "In Progress ⚙️",
-    projectUrl: "https://github.com/Mess925/RUN",
+      "An advanced video intelligence platform designed to transform how users interact with long-form video content.",
+    projectUrl: "https://github.com/Lawrecesss/VidA",
+  },
+   {
+    title: "ThirdEye",
+    miniTitle: "AI-Powered Information Integrity & Fact-Checking Platform",
+    description:
+      "A real-time verification system built using the ReAct framework to automate factual cross-referencing and combat misinformation during high-pressure development sprints.",
+    projectUrl: "https://github.com/Th1rd3yE",
   },
   {
-    title: "MiniRT",
-    miniTitle: "Mini ray-tracing engine implemented in C",
+    title: "Knoverse",
+    miniTitle: "Secure Enterprise RAG Chatbot",
     description:
-      "Built to render simple 3D scenes using ray tracing principles and fundamental concepts of computer graphics — including rays, lighting, reflection, and shading — while focusing on mathematical precision and clean architecture.",
-    imageUrl: "/images/minirt.png",
-    techIconUrl: [
-      "https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg",
-    ],
-    status: "Completed 📦",
-    projectUrl: "https://github.com/Mess925/MiniRT",
+      "Specialized Retrieval-Augmented Generation (RAG) chatbot and centralized knowledge hub.",
+    projectUrl: "https://github.com/thanthtetaung4/Knoverse",
+  },
+  {
+    title: "Inception",
+    miniTitle: "Custom HTTP/HTTPS Server",
+    description:
+      "A custom HTTP/HTTPS server implemented in C, designed to handle web requests and responses with a focus on performance and security.",
+    projectUrl: "https://github.com/thanthtetaung4/inception",
   },
   {
     title: "Minishell",
     miniTitle: "A Tiny UNIX Shell implemented in C",
     description:
       "A shell implemented in C, designed to replicate the basic behavior of bash. It handles commands, redirections, pipes, environment variables, and signal handling, offering a fully functional interactive shell experience.",
-    imageUrl: "",
-    techIconUrl: [
-      "https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg",
-      "https://www.vectorlogo.zone/logos/linux/linux-icon.svg",
-    ],
-    status: "Completed 📦",
     projectUrl: "https://github.com/thanthtetaung4/mini_shell",
   },
   {
@@ -47,12 +44,6 @@ const cards = [
     miniTitle: "iOS Messaging Mobile App",
     description:
       "A real-time messaging app that breaks language barriers through instant message translation. Automatically translates messages into each user’s preferred language — seamlessly and naturally.",
-    imageUrl: "/images/telebird.png",
-    techIconUrl: [
-      "https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg",
-      "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
-    ],
-    status: "Completed 📦",
     projectUrl: "https://github.com/Lawrecesss/TeleBird",
   },
 ];
@@ -61,9 +52,6 @@ interface ProjectCardProps {
   title: string;
   miniTitle: string;
   description: string;
-  imageUrl: string;
-  techIconUrl: string[];
-  status?: string;
   projectUrl?: string;
 }
 
@@ -92,15 +80,10 @@ const ProjectCard = (props: ProjectCardProps) => {
   return (
     <div className="flex flex-col lg:flex-row justify-center items-start gap-10 p-6 h-full">
       <div className="flex-1 flex flex-col h-full">
-        <div className="flex items-center gap-3 mb-2">
+        <div className="flex gap-3 mb-2">
           <h2 className="text-xl sm:text-4xl font-bold text-white">
             {props.title}
           </h2>
-          {props.status && (
-            <span className="text-xs sm:text-sm px-3 py-1 rounded-full bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 text-purple-300">
-              {props.status}
-            </span>
-          )}
         </div>
         <p className="text-gray-400 text-sm sm:text-base mt-1">
           {props.miniTitle}
@@ -111,9 +94,6 @@ const ProjectCard = (props: ProjectCardProps) => {
           </p>
         </div>
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-auto pt-6">
-          <div className="flex flex-row gap-2 items-center flex-wrap">
-            {props.techIconUrl && <TechIcons iconUrl={props.techIconUrl} />}
-          </div>
           {props.projectUrl && (
             <button 
               onClick={handleViewProject}
@@ -130,24 +110,6 @@ const ProjectCard = (props: ProjectCardProps) => {
             </button>
           )}
         </div>
-      </div>
-      <div className="hidden lg:flex items-center justify-center lg:w-[45%] w-full">
-        {props.imageUrl !== "" ? (
-          <div className="relative group w-full">
-            <Image
-              src={props.imageUrl}
-              alt={props.title}
-              width={500}
-              height={304}
-              className="w-full h-[250px] lg:h-[304px] object-cover rounded-xl shadow-2xl transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </div>
-        ) : (
-          <div className="w-full h-[250px] lg:h-[304px] rounded-xl bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center">
-            <p className="text-gray-500 text-sm">No preview available</p>
-          </div>
-        )}
       </div>
     </div>
   );
