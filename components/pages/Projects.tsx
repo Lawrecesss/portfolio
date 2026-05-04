@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, X, ChevronRight } from "lucide-react";
 
@@ -74,72 +75,95 @@ const cards = [
 
 type Card = (typeof cards)[0];
 
-const ProjectModal = ({ card, onClose }: { card: Card; onClose: () => void }) => (
-  <motion.div
-    className="fixed inset-0 z-50 flex items-center justify-center p-4 "
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.2 }}
-  >
-    {/* Blurred backdrop */}
-    <div
-      className="absolute inset-0 bg-black/50 backdrop-blur-md"
-      onClick={onClose}
-    />
+interface ModalState {
+  card: Card;
+  top: number;
+  left: number;
+  width: number;
+  minHeight: number;
+}
 
-    {/* Centered modal */}
-    <motion.div
-      className={`relative z-10 w-full max-w-sm rounded-2xl p-[1px] bg-gradient-to-br ${card.gradient} shadow-2xl`}
-      initial={{ scale: 0.92, opacity: 0, y: 12 }}
-      animate={{ scale: 1, opacity: 1, y: 0 }}
-      exit={{ scale: 0.92, opacity: 0, y: 12 }}
-      transition={{ duration: 0.22, ease: "easeOut" }}
-    >
-      <div className="rounded-[15px] bg-[#0d0d1a] p-6">
-        <div className="mb-4 flex items-start justify-between gap-3">
-          <div>
-            <p className={`text-[10px] uppercase tracking-[0.3em] ${card.accent}`}>
-              {card.miniTitle}
-            </p>
-            <h3 className="mt-1.5 text-lg font-semibold text-white">{card.title}</h3>
-          </div>
-          <button
-            onClick={onClose}
-            className="shrink-0 rounded-xl p-1.5 text-slate-500 transition-colors hover:bg-white/[0.08] hover:text-white"
-          >
-            <X size={14} />
-          </button>
-        </div>
+// Capture exact card coordinates — portal renders in <body> so
+// position:fixed uses true viewport coords; rect values are already correct.
+function getCardRect(rect: DOMRect): Omit<ModalState, "card"> {
+  return {
+    top: rect.top,
+    left: rect.left,
+    width: rect.width,
+    minHeight: rect.height,
+  };
+}
 
-        <p className="text-sm leading-7 text-slate-300">{card.description}</p>
+const ProjectModal = ({ state, onClose }: { state: ModalState; onClose: () => void }) => {
+  const { card, top, left, width, minHeight } = state;
+  return (
+    // Plain div — NOT motion.div — so framer-motion adds no transforms that
+    // would shift the coordinate space of absolutely-positioned children.
+    <div className="pointer-events-none fixed inset-0 z-50">
+      {/* Backdrop — animated separately */}
+      <motion.div
+        className="pointer-events-auto absolute inset-0 bg-black/50 backdrop-blur-md"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.18 }}
+        onClick={onClose}
+      />
 
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          {card.stack.map((item) => (
-            <span
-              key={item}
-              className="rounded-lg border border-white/[0.07] bg-white/[0.04] px-2.5 py-1 text-[10px] uppercase tracking-wider text-slate-400"
+      {/* Modal — fixed at exact card viewport coords */}
+      <motion.div
+        className={`pointer-events-auto absolute rounded-2xl p-[1px] bg-gradient-to-br ${card.gradient} shadow-2xl`}
+        style={{ top, left, width, transformOrigin: "top center" }}
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.96 }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+      >
+        <div className="rounded-[15px] bg-[#0d0d1a] p-5" style={{ minHeight }}>
+          <div className="mb-4 flex items-start justify-between gap-3">
+            <div>
+              <p className={`text-[10px] uppercase tracking-[0.3em] ${card.accent}`}>
+                {card.miniTitle}
+              </p>
+              <h3 className="mt-1.5 text-lg font-semibold text-white">{card.title}</h3>
+            </div>
+            <button
+              onClick={onClose}
+              className="shrink-0 rounded-xl p-1.5 text-slate-500 transition-colors hover:bg-white/[0.08] hover:text-white"
             >
-              {item}
-            </span>
-          ))}
-        </div>
+              <X size={14} />
+            </button>
+          </div>
 
-        {card.projectUrl && (
-          <a
-            href={card.projectUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border ${card.borderAccent} bg-white/[0.04] py-2.5 text-sm font-medium text-slate-200 transition-all hover:bg-white/[0.08] hover:text-white`}
-          >
-            <ExternalLink size={13} />
-            View on GitHub
-          </a>
-        )}
-      </div>
-    </motion.div>
-  </motion.div>
-);
+          <p className="text-sm leading-7 text-slate-300">{card.description}</p>
+
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {card.stack.map((item) => (
+              <span
+                key={item}
+                className="rounded-lg border border-white/[0.07] bg-white/[0.04] px-2.5 py-1 text-[10px] uppercase tracking-wider text-slate-400"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+
+          {card.projectUrl && (
+            <a
+              href={card.projectUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border ${card.borderAccent} bg-white/[0.04] py-2.5 text-sm font-medium text-slate-200 transition-all hover:bg-white/[0.08] hover:text-white`}
+            >
+              <ExternalLink size={13} />
+              View on GitHub
+            </a>
+          )}
+        </div>
+      </motion.div>
+    </div>
+  );
+};
 
 const ProjectCard = ({
   card,
@@ -148,7 +172,7 @@ const ProjectCard = ({
 }: {
   card: Card;
   index: number;
-  onOpen: () => void;
+  onOpen: (e: React.MouseEvent<HTMLDivElement>) => void;
 }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -193,7 +217,15 @@ const ProjectCard = ({
 );
 
 const Projects = ({ isVisible }: { isVisible: boolean }) => {
-  const [selected, setSelected] = useState<Card | null>(null);
+  const [modal, setModal] = useState<ModalState | null>(null);
+  // Portal root — set after mount so document.body is available (SSR-safe)
+  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
+  useEffect(() => { setPortalRoot(document.body); }, []);
+
+  const handleOpen = (card: Card, e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setModal({ card, ...getCardRect(rect) });
+  };
 
   return (
     <>
@@ -225,22 +257,27 @@ const Projects = ({ isVisible }: { isVisible: boolean }) => {
                 key={card.title}
                 card={card}
                 index={idx}
-                onOpen={() => setSelected(card)}
+                onOpen={(e) => handleOpen(card, e)}
               />
             ))}
           </div>
         </div>
       </motion.section>
 
-      <AnimatePresence>
-        {selected && (
-          <ProjectModal
-            key="project-modal"
-            card={selected}
-            onClose={() => setSelected(null)}
-          />
-        )}
-      </AnimatePresence>
+      {/* Render modal through a portal into document.body so position:fixed
+          is not affected by will-change-transform on the layout wrapper */}
+      {portalRoot && createPortal(
+        <AnimatePresence>
+          {modal && (
+            <ProjectModal
+              key="project-modal"
+              state={modal}
+              onClose={() => setModal(null)}
+            />
+          )}
+        </AnimatePresence>,
+        portalRoot
+      )}
     </>
   );
 };
