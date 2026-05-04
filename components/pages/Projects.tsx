@@ -34,7 +34,7 @@ const cards = [
   },
   {
     title: "Inception",
-    miniTitle: "Custom HTTP/HTTPS Server in C",
+    miniTitle: "Custom HTTP Server in C",
     description:
       "A custom HTTP/HTTPS server in C designed to handle web requests with a focus on performance and security.",
     stack: ["C", "Systems", "Security"],
