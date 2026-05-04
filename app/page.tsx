@@ -18,7 +18,7 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div className="relative overflow-hidden bg-slate-950 text-slate-100">
+    <div className="relative overflow-hidden text-slate-100">
       <PageLadderTransition isVisible={isVisible} />
       <div className="relative mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-4 sm:px-6">
         <Header isVisible={isVisible} />

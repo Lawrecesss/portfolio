@@ -17,10 +17,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="h-full scroll-smooth">
-      <body className={`${offside.className} bg-slate-950 text-slate-100 antialiased`}>
-        <div className="relative min-h-screen overflow-x-hidden">
+      <body className={`${offside.className} bg-[#05050d] text-slate-100 antialiased`}>
+        <div className="relative min-h-screen overflow-x-hidden will-change-transform">
           <Background />
-          <main className="relative min-h-screen">{children}</main>
+          <main className="relative">{children}</main>
         </div>
       </body>
     </html>
