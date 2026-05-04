@@ -24,7 +24,6 @@ export default function Home() {
         <Header isVisible={isVisible} />
         <Hero isVisible={isVisible} />
         <AboutMe isVisible={isVisible} />
-        {/* <Skills isVisible={isVisible} /> */}
         <Projects isVisible={isVisible} />
         <ContactMe isVisible={isVisible} />
         <Footer isVisible={isVisible} />
