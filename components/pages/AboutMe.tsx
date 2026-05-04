@@ -4,36 +4,76 @@ import CodeStacks from "../ui/CodeStacks";
 
 const AboutMe = ({ isVisible }: { isVisible: boolean }) => {
   return (
-    <motion.div
+    <motion.section
       id="about-me"
-      className={`relative ${
-        isVisible ? "hidden" : "block"
-      } mb-10 flex flex-col items-center`}
+      className={`relative ${isVisible ? "hidden" : "block"} py-12 sm:py-16`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.8, duration: 1 }}
     >
-      <div className="w-full">
-        {/* <h2 className="text-4xl sm:text-6xl font-bold text-center mb-16 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-          About Me
-        </h2> */}
-        <CodeStacks isVisible={isVisible} />
-        <div className="relative flex min-h-[240px] w-full mt-12 flex-col items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-neutral-900 to-black p-5 sm:p-7 md:p-12 md:shadow-2xl border border-white/10">
-          <Meteors number={24} />
-          <div className="relative z-10 max-w-3xl px-2 sm:px-0">
-            <svg className="w-10 h-10 mb-4 text-purple-400 opacity-50 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-            </svg>
-            <p className="text-gray-300 text-sm sm:text-base md:text-xl leading-7 sm:leading-8 text-justify font-light">
-              Full-stack developer driven by the challenge of building scalable, intelligent systems. I am naturally motivated by technical hurdles and thrive in environments that require expanding my proficiency in AI frameworks and end-to-end architecture.
-            </p>
-            <svg className="w-10 h-10 mt-5 ml-auto text-blue-400 opacity-50 rotate-180 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-            </svg>
+      <div className="mx-auto max-w-5xl px-4 sm:px-5 lg:px-0">
+        <div className="text-center mb-8 sm:mb-14">
+          <p className="text-sm uppercase tracking-[0.35em] text-cyan-300 opacity-80">
+            About Me
+          </p>
+          <h2 className="mt-4 text-3xl font-bold text-white sm:text-5xl">
+            Building thoughtful software with clarity and scale.
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-400 sm:text-base">
+            I craft polished digital experiences and backend systems that solve real problems. My focus is on solid architecture, readable code, and user-first product quality.
+          </p>
+        </div>
+
+        <div className="glass-panel relative overflow-hidden rounded-[2.5rem] border border-white/10 p-4 sm:p-6 md:p-8">
+          <Meteors number={18} />
+          <div className="relative z-10 grid gap-6 lg:grid-cols-[1.3fr_0.9fr] items-start">
+            <div className="space-y-6">
+              <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.32em] text-slate-200 shadow-[0_0_16px_rgba(255,255,255,0.06)] sm:px-4 sm:py-1.5 sm:text-xs">
+                Full Stack Engineer
+              </div>
+              <p className="text-slate-200 text-sm leading-7 sm:text-base sm:leading-8">
+                Full-stack developer driven by the challenge of building scalable, intelligent systems. I thrive in environments that require deep technical focus, AI edge solutions, and end-to-end architecture.
+              </p>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-3xl border border-white/10 bg-slate-950/60 p-4 text-sm text-slate-200">
+                  <p className="text-cyan-300 text-xs uppercase tracking-[0.25em]">Focus</p>
+                  <p className="mt-3">AI tooling, product systems, dev workflows</p>
+                </div>
+                <div className="rounded-3xl border border-white/10 bg-slate-950/60 p-4 text-sm text-slate-200">
+                  <p className="text-cyan-300 text-xs uppercase tracking-[0.25em]">Approach</p>
+                  <p className="mt-3">Readable code, production reliability, user impact</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 text-slate-200 shadow-[0_20px_80px_rgba(15,23,42,0.25)]">
+              <p className="text-sm uppercase tracking-[0.28em] text-cyan-300">Snapshot</p>
+              <div className="mt-6 space-y-5 text-sm leading-7 text-slate-300">
+                <div>
+                  <p className="font-medium text-white">Experience</p>
+                  <p>Full-stack web applications, cloud services, AI integration.</p>
+                </div>
+                <div>
+                  <p className="font-medium text-white">Tools</p>
+                  <p>Next.js, TypeScript, Node.js, React, Tailwind, Python</p>
+                </div>
+                <div>
+                  <p className="font-medium text-white">Delivery</p>
+                  <p>Clean design, fast performance, scalable product code.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
+        <div className="mt-10">
+          <div className="text-sm uppercase tracking-[0.3em] text-cyan-300 mb-4">
+            Technology Highlights
+          </div>
+          <CodeStacks isVisible={isVisible} />
+        </div>
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 

@@ -73,7 +73,7 @@ const ProjectCard = ({ title, miniTitle, description, stack, projectUrl }: Proje
       whileHover={{ y: -5 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="group relative flex min-h-[280px] h-full overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900/90 via-slate-950/90 to-slate-900/90 p-px shadow-[0_30px_80px_rgba(79,70,229,0.18)] transition-transform duration-300 hover:shadow-[0_40px_120px_rgba(79,70,229,0.26)] sm:min-h-[420px]"
+      className="group relative flex min-h-[240px] h-full overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900/90 via-slate-950/90 to-slate-900/90 p-px shadow-[0_20px_60px_rgba(79,70,229,0.16)] transition-transform duration-300 hover:shadow-[0_30px_90px_rgba(79,70,229,0.22)] sm:min-h-[380px]"
     >
       <div className="relative flex h-full flex-1 flex-col rounded-[1.85rem] border border-white/10 bg-[#07070f]/95 backdrop-blur-xl p-4 sm:p-8">
         <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-violet-500 via-cyan-400 to-fuchsia-500" />
@@ -133,26 +133,33 @@ const ProjectCard = ({ title, miniTitle, description, stack, projectUrl }: Proje
 
 const Projects = ({ isVisible }: { isVisible: boolean }) => {
   return (
-    <motion.div
+    <motion.section
       id="projects"
-      className={`relative ${isVisible ? "hidden" : "block"}`}
+      className={`relative ${isVisible ? "hidden" : "block"} py-12 sm:py-16`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.8, duration: 1 }}
     >
-      <div className="bg-black">
-        <h2 className="text-3xl sm:text-5xl font-bold text-white text-center mt-20">Projects</h2>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-slate-400 sm:text-base">
-          Selected work showcasing modern product experiences, real-time systems, AI tooling, and custom platform engineering.
-        </p>
+      <div className="mx-auto max-w-5xl px-4 sm:px-5 lg:px-0">
+        <div className="text-center mb-10 sm:mb-14">
+          <p className="text-sm uppercase tracking-[0.35em] text-cyan-300 opacity-80">
+            Selected Work
+          </p>
+          <h2 className="mt-4 text-3xl font-bold text-white sm:text-5xl">
+            Projects
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-400 sm:text-base">
+            A selection of product-focused systems, AI tooling, and engineering projects that showcase both design and technical execution.
+          </p>
+        </div>
 
-        <div className="mx-auto grid w-full max-w-[1500px] gap-4 py-12 auto-rows-fr md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-5 auto-rows-fr sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {cards.map((card, idx) => (
             <ProjectCard key={idx} {...card} />
           ))}
         </div>
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 

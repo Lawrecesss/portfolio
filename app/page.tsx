@@ -22,10 +22,10 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div className="bg-black">
+    <div className="relative overflow-hidden bg-slate-950 text-slate-100">
       <PageLadderTransition isVisible={isVisible} />
       <Background isVisible={isVisible} />
-      <div className="px-10 md:px-32 lg:px-40">
+      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-10">
         <Header isVisible={isVisible} />
         <Hero isVisible={isVisible} />
         <AboutMe isVisible={isVisible} />

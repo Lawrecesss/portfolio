@@ -6,13 +6,13 @@ export const Footer = ({ isVisible }: { isVisible: boolean }) => {
   
   return (
     <footer
-      className={`mt-20 py-8 w-full border-t border-white/10 ${
+      className={`mt-16 w-full border-t border-white/10 ${
         isVisible ? "hidden" : "block"
       }`}
     >
-      <div className="flex flex-col items-center gap-2">
-        <p className="text-gray-400 text-sm">© {currentYear} Lin Htet Shein. All Rights Reserved.</p>
-        <p className="text-gray-500 text-xs">Built with Next.js & Tailwind CSS</p>
+      <div className="mx-auto flex max-w-5xl flex-col items-center gap-2 py-8 text-center text-slate-400">
+        <p className="text-sm">© {currentYear} Lin Htet Shein. All Rights Reserved.</p>
+        <p className="text-xs text-slate-500">Built with Next.js & Tailwind CSS</p>
       </div>
     </footer>
   );

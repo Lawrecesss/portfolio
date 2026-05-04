@@ -7,70 +7,62 @@ import { GithubIcon, LinkedinIcon } from "lucide-react";
 const fugaz = Fugaz_One({ subsets: ["latin"], weight: "400" });
 export const Hero = ({ isVisible }: { isVisible: boolean }) => {
   return (
-    <motion.div
-      className={`h-screen flex items-center justify-center -mx-10 md:-mx-32 lg:-mx-40 -my-20 ${
-        isVisible ? "hidden" : "block"
-      }`}
+    <motion.section
+      className={`relative w-full py-10 sm:py-16 ${isVisible ? "hidden" : "block"}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.8, duration: 1 }}
     >
-      <div className="text-center w-full px-4 sm:px-8">
+      <div className="mx-auto flex min-h-[52vh] max-w-4xl flex-col items-center justify-center gap-6 rounded-[2.5rem] p-6 sm:p-8 lg:p-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}
+          className="text-center"
         >
-          <p
-            className={`${fugaz.className} mb-10 font-semibold text-white bg-clip-text text-5xl sm:text-7xl leading-tight`}
-          >
+          <p className={`${fugaz.className} text-3xl font-semibold text-white sm:text-4xl md:text-5xl leading-tight`}>
             Software Developer
           </p>
+          <p className="mt-5 max-w-xl text-sm text-slate-300 sm:text-base md:text-lg leading-7 sm:leading-8">
+            I design and develop efficient, scalable software systems with clean architecture and intuitive user experiences. My work is built for performance, reliability, and strong production-ready results.
+          </p>
         </motion.div>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.3, duration: 0.8 }}
-          className="text-sm md:text-xl text-gray-200 text-center max-w-4xl mx-auto px-6 leading-relaxed"
-        >
-          I design and develop efficient, scalable software systems. Proficient in writing clean, maintainable code and building solutions that deliver reliability and strong performance.
-        </motion.p>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.6, duration: 0.8 }}
-          className="flex flex-row gap-5 sm:gap-10 justify-center items-center mt-8 sm:mt-10 text-white"
+          className="flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-center"
         >
-          <a 
-            href="https://github.com/Lawrecesss" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-110"
-          >
-            <GithubIcon color="white" size={24} />
-          </a>
-          <a 
-            href="https://linkedin.com/in/lin-htet-shein" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-110"
-          >
-            <LinkedinIcon color="white" size={24} />
-          </a>
-          <a 
-            href="/resume.pdf" 
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="https://github.com/Lawrecesss"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-white transition hover:bg-white/15 hover:scale-105"
+            >
+              <GithubIcon size={20} />
+            </a>
+            <a
+              href="https://linkedin.com/in/lin-htet-shein"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-white transition hover:bg-white/15 hover:scale-105"
+            >
+              <LinkedinIcon size={20} />
+            </a>
+          </div>
+          <a
+            href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full px-6 py-3 sm:px-8 sm:py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 hover:border-white/40 text-white font-semibold transition-all duration-300 hover:scale-105 shadow-lg inline-block"
+            className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/20 hover:scale-[1.02]"
           >
-            <div className="flex gap-2 sm:gap-3 items-center">
-              <Download size={16} />
-              <p className="text-xs sm:text-base">Resume</p>
-            </div>
+            <Download size={16} />
+            Resume
           </a>
         </motion.div>
       </div>
-      {/* <RippleComponent /> */}
-    </motion.div>
+    </motion.section>
   );
 };

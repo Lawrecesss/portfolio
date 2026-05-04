@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Offside } from "next/font/google";
 import "./globals.css";
-import Providers from "@/components/ui/Providers"; // 👈 new wrapper component
 
 const offside = Offside({ subsets: ["latin"], weight: "400" });
 
@@ -14,8 +13,8 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="h-full scroll-smooth">
-      <body className={`${offside.className}`}>
-        <main className="relative">{children}</main>
+      <body className={`${offside.className} bg-slate-950 text-slate-100 antialiased`}>
+        <main className="relative min-h-screen overflow-x-hidden">{children}</main>
       </body>
     </html>
   );

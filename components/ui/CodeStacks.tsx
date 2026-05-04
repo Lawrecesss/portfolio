@@ -66,22 +66,20 @@ const ReviewCard = ({ img, icon_name }: { img: string; icon_name: string }) => {
 export default function CodeStacks({ isVisible }: { isVisible: boolean }) {
   return (
     <motion.div
-      className={`relative flex h-[150px] w-full flex-col mt-20 items-center justify-center overflow-hidden  ${
+      className={`relative flex min-h-[120px] w-full flex-col mt-16 items-center justify-center overflow-hidden ${
         isVisible ? "hidden" : "block"
       }`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.8, duration: 1 }}
     >
-      <div onClick={() => {}}>
+      <div className="glass-panel w-full max-w-6xl px-4 py-4 sm:px-6 sm:py-5">
         <Marquee className="[--duration:20s]">
           {icons.map((review) => (
             <ReviewCard key={review.icon_name} {...review} />
           ))}
         </Marquee>
       </div>
-      {/* <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-black "></div> */}
     </motion.div>
   );
 }
