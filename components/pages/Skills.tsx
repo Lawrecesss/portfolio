@@ -47,9 +47,14 @@ const Skills = ({ isVisible }: { isVisible: boolean }) => {
       animate={{ opacity: 1 }}
       transition={{ delay: 1.8, duration: 1 }}
     >
-      <h2 className="text-5xl font-bold text-white mb-20 text-center">
-        Skills
-      </h2>
+      <div className="hero-panel mx-auto mb-20 max-w-4xl p-10 sm:p-12">
+        <div className="pointer-events-none absolute -left-10 top-10 h-32 w-32 rounded-full bg-cyan-400/15 blur-3xl" />
+        <div className="pointer-events-none absolute right-10 bottom-10 h-28 w-28 rounded-full bg-violet-500/15 blur-3xl" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-slate-950/90 to-transparent" />
+        <h2 className="relative text-5xl font-bold text-white text-center">
+          Skills
+        </h2>
+      </div>
     </motion.div>
   );
 };

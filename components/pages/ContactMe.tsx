@@ -1,60 +1,90 @@
 import { motion } from "framer-motion";
-import { FaLinkedin } from "react-icons/fa";
-import { FaDiscord } from "react-icons/fa";
+import { FaLinkedin, FaDiscord } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoLogoWhatsapp } from "react-icons/io";
+
+const contactMethods = [
+  {
+    label: "Discord",
+    href: "https://discord.com/users/lxwrxxce",
+    icon: <FaDiscord size={22} />,
+    description: "Quick conversation",
+    gradient: "from-indigo-500/40 via-transparent to-purple-500/25",
+    iconColor: "text-indigo-400",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/lin-htet-shein",
+    icon: <FaLinkedin size={22} />,
+    description: "Professional connect",
+    gradient: "from-blue-500/40 via-transparent to-cyan-500/25",
+    iconColor: "text-blue-400",
+  },
+  {
+    label: "Email",
+    href: "mailto:lhshein14@gmail.com",
+    icon: <MdEmail size={22} />,
+    description: "Collaboration & queries",
+    gradient: "from-rose-500/35 via-transparent to-pink-500/25",
+    iconColor: "text-rose-400",
+  },
+  {
+    label: "WhatsApp",
+    href: "https://wa.me/+6587332977",
+    icon: <IoLogoWhatsapp size={22} />,
+    description: "Fast replies",
+    gradient: "from-emerald-500/35 via-transparent to-teal-500/25",
+    iconColor: "text-emerald-400",
+  },
+];
 
 const ContactMe = ({ isVisible }: { isVisible: boolean }) => {
   return (
     <motion.section
-      className={`relative ${isVisible ? "hidden" : "block"} py-16 sm:py-20`}
+      id="contact"
+      className={`relative py-24 ${isVisible ? "hidden" : "block"}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.8, duration: 1 }}
     >
-      <div className="mx-auto max-w-5xl text-center">
-        <h2 className="text-3xl font-semibold text-white sm:text-4xl">
-          Let&apos;s Connect
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-400 sm:text-base">
-          Reach out for collaborations, opportunities, or a quick chat about product engineering and AI systems.
-        </p>
-      </div>
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <a
-          href="https://discord.com/users/lxwrxxce"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="glass-panel flex flex-col items-center gap-3 rounded-[1.75rem] p-5 text-center transition hover:-translate-y-1 hover:shadow-[0_20px_80px_rgba(15,23,42,0.35)]"
+      <div className="mx-auto max-w-3xl px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 text-center"
         >
-          <FaDiscord className="text-indigo-300" size={34} />
-          <span className="text-sm text-slate-200">Discord</span>
-        </a>
-        <a
-          href="https://linkedin.com/in/lin-htet-shein"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="glass-panel flex flex-col items-center gap-3 rounded-[1.75rem] p-5 text-center transition hover:-translate-y-1 hover:shadow-[0_20px_80px_rgba(15,23,42,0.35)]"
-        >
-          <FaLinkedin className="text-cyan-300" size={34} />
-          <span className="text-sm text-slate-200">LinkedIn</span>
-        </a>
-        <a
-          href="mailto:lhshein14@gmail.com"
-          className="glass-panel flex flex-col items-center gap-3 rounded-[1.75rem] p-5 text-center transition hover:-translate-y-1 hover:shadow-[0_20px_80px_rgba(15,23,42,0.35)]"
-        >
-          <MdEmail className="text-rose-300" size={34} />
-          <span className="text-sm text-slate-200">Email</span>
-        </a>
-        <a
-          href="https://wa.me/+6587332977"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="glass-panel flex flex-col items-center gap-3 rounded-[1.75rem] p-5 text-center transition hover:-translate-y-1 hover:shadow-[0_20px_80px_rgba(15,23,42,0.35)]"
-        >
-          <IoLogoWhatsapp className="text-emerald-300" size={34} />
-          <span className="text-sm text-slate-200">WhatsApp</span>
-        </a>
+          <p className="text-xs uppercase tracking-[0.35em] text-violet-400">Contact</p>
+          <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Let&apos;s Connect</h2>
+          <p className="mx-auto mt-4 max-w-sm text-sm text-slate-400">
+            Open for new projects, consulting, and idea sprints.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {contactMethods.map((method, i) => (
+            <motion.a
+              key={method.label}
+              href={method.href}
+              target={method.label === "Email" ? undefined : "_blank"}
+              rel={method.label === "Email" ? undefined : "noopener noreferrer"}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.07 }}
+              className={`rounded-2xl p-[1px] bg-gradient-to-br ${method.gradient} transition-transform hover:-translate-y-1`}
+            >
+              <div className="flex h-full flex-col items-start gap-3 rounded-[15px] bg-[#0d0d1a] p-5">
+                <span className={method.iconColor}>{method.icon}</span>
+                <div>
+                  <p className="text-sm font-semibold text-white">{method.label}</p>
+                  <p className="mt-0.5 text-xs text-slate-400">{method.description}</p>
+                </div>
+              </div>
+            </motion.a>
+          ))}
+        </div>
       </div>
     </motion.section>
   );

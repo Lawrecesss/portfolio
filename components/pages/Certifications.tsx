@@ -24,7 +24,10 @@ const Certifications = ({ isVisible }: { isVisible: boolean }) => {
           </p>
         </div>
 
-        <div className="glass-panel rounded-[2.5rem] border border-white/10 p-4 sm:p-6">
+        <div className="hero-panel p-4 sm:p-6">
+          <div className="pointer-events-none absolute -right-10 top-10 h-40 w-40 rounded-full bg-cyan-400/15 blur-3xl" />
+          <div className="pointer-events-none absolute left-[-8%] bottom-10 h-44 w-44 rounded-full bg-violet-500/15 blur-3xl" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-slate-950/90 to-transparent" />
           <div className="grid gap-5 auto-rows-fr md:grid-cols-2">
             <Certificates
               certificate="Bachelor of Science with Honors in Computing Science"

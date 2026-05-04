@@ -1,53 +1,66 @@
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 
 const cards = [
   {
     title: "VidA",
-    miniTitle: "AI-Powered Multimodal Video Analysis Tool",
+    miniTitle: "AI-Powered Multimodal Video Analysis",
     description:
-      "An advanced video intelligence platform designed to transform how users interact with long-form video content.",
+      "An advanced video intelligence platform that transforms how users interact with long-form video content.",
     stack: ["Next.js", "TypeScript", "OpenAI"],
     projectUrl: "https://github.com/Lawrecesss/VidA",
+    gradient: "from-violet-500/40 via-transparent to-blue-500/25",
+    accent: "text-violet-400",
   },
   {
     title: "ThirdEye",
-    miniTitle: "AI-Powered Information Integrity & Fact-Checking Platform",
+    miniTitle: "AI Information Integrity Platform",
     description:
-      "A real-time verification system built using the ReAct framework to automate factual cross-referencing and combat misinformation during high-pressure development sprints.",
+      "Real-time verification system using the ReAct framework to automate factual cross-referencing and combat misinformation.",
     stack: ["React", "Node.js", "AI"],
     projectUrl: "https://github.com/Th1rd3yE",
+    gradient: "from-orange-500/35 via-transparent to-red-500/25",
+    accent: "text-orange-400",
   },
   {
     title: "Knoverse",
     miniTitle: "Secure Enterprise RAG Chatbot",
     description:
-      "Specialized Retrieval-Augmented Generation (RAG) chatbot and centralized knowledge hub.",
+      "Specialized Retrieval-Augmented Generation chatbot and centralized knowledge hub for enterprises.",
     stack: ["RAG", "Next.js", "MongoDB"],
     projectUrl: "https://github.com/thanthtetaung4/Knoverse",
+    gradient: "from-emerald-500/35 via-transparent to-teal-500/25",
+    accent: "text-emerald-400",
   },
   {
     title: "Inception",
-    miniTitle: "Custom HTTP/HTTPS Server",
+    miniTitle: "Custom HTTP/HTTPS Server in C",
     description:
-      "A custom HTTP/HTTPS server implemented in C, designed to handle web requests and responses with a focus on performance and security.",
+      "A custom HTTP/HTTPS server in C designed to handle web requests with a focus on performance and security.",
     stack: ["C", "Systems", "Security"],
     projectUrl: "https://github.com/thanthtetaung4/inception",
+    gradient: "from-blue-500/35 via-transparent to-cyan-500/25",
+    accent: "text-blue-400",
   },
   {
     title: "Minishell",
-    miniTitle: "A Tiny UNIX Shell implemented in C",
+    miniTitle: "A Tiny UNIX Shell in C",
     description:
-      "A shell implemented in C, designed to replicate the basic behavior of bash. It handles commands, redirections, pipes, environment variables, and signal handling, offering a fully functional interactive shell experience.",
+      "A shell implementing bash behavior — commands, redirections, pipes, environment variables, and signal handling.",
     stack: ["C", "Unix", "Shell"],
     projectUrl: "https://github.com/thanthtetaung4/mini_shell",
+    gradient: "from-amber-500/35 via-transparent to-yellow-500/25",
+    accent: "text-amber-400",
   },
   {
     title: "TeleBird",
-    miniTitle: "iOS Messaging Mobile App",
+    miniTitle: "iOS Real-Time Messaging App",
     description:
-      "A real-time messaging app that breaks language barriers through instant message translation. Automatically translates messages into each user’s preferred language — seamlessly and naturally.",
+      "A messaging app that breaks language barriers through instant translation into each user's preferred language.",
     stack: ["Swift", "iOS", "Realtime"],
     projectUrl: "https://github.com/Lawrecesss/TeleBird",
+    gradient: "from-pink-500/35 via-transparent to-rose-500/25",
+    accent: "text-pink-400",
   },
 ];
 
@@ -57,44 +70,42 @@ interface ProjectCardProps {
   description: string;
   stack: string[];
   projectUrl?: string;
+  gradient: string;
+  accent: string;
+  index: number;
 }
 
-const ProjectCard = ({ title, miniTitle, description, stack, projectUrl }: ProjectCardProps) => {
-  const handleViewProject = () => {
-    if (projectUrl) {
-      window.open(projectUrl, "_blank", "noopener,noreferrer");
-    }
-  };
-
+const ProjectCard = ({
+  title,
+  miniTitle,
+  description,
+  stack,
+  projectUrl,
+  gradient,
+  accent,
+  index,
+}: ProjectCardProps) => {
   return (
-    <motion.article
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -5 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-      className="group relative flex min-h-[240px] h-full overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900/90 via-slate-950/90 to-slate-900/90 p-px shadow-[0_20px_60px_rgba(79,70,229,0.16)] transition-transform duration-300 hover:shadow-[0_30px_90px_rgba(79,70,229,0.22)] sm:min-h-[380px]"
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, delay: index * 0.07 }}
+      className={`rounded-2xl p-[1px] bg-gradient-to-br ${gradient}`}
     >
-      <div className="relative flex h-full flex-1 flex-col rounded-[1.85rem] border border-white/10 bg-[#07070f]/95 backdrop-blur-xl p-4 sm:p-8">
-        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-violet-500 via-cyan-400 to-fuchsia-500" />
+      <article className="flex h-full flex-col rounded-[15px] bg-[#0d0d1a] p-5">
+        <div className="mb-auto space-y-3">
+          <p className={`text-[10px] uppercase tracking-[0.3em] ${accent}`}>{miniTitle}</p>
+          <h3 className="text-lg font-semibold text-white sm:text-xl">{title}</h3>
+          <p className="hidden text-sm leading-6 text-slate-400 sm:block">{description}</p>
+        </div>
 
-        <div className="relative flex h-full flex-col justify-between gap-4 sm:gap-6">
-          <span className="self-start rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[9px] uppercase tracking-[0.24em] text-slate-300 shadow-[0_0_14px_rgba(255,255,255,0.05)] sm:px-4 sm:py-1.5 sm:text-xs">
-            Featured
-          </span>
-
-          <div>
-            <h3 className="text-xl font-semibold text-white sm:text-3xl">{title}</h3>
-            <p className="mt-2 text-xs text-slate-300 sm:text-base lg:max-w-xl">{miniTitle}</p>
-          </div>
-
-          <p className="hidden text-slate-300 text-sm leading-7 sm:block sm:text-base sm:leading-8">{description}</p>
-
-          <div className="flex flex-wrap gap-1.5 pt-2 sm:gap-3">
+        <div className="mt-5 space-y-4">
+          <div className="flex flex-wrap gap-1.5">
             {stack.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-white/10 bg-white/5 px-2 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-slate-200 sm:px-3 sm:py-1.5 sm:text-xs"
+                className="rounded-lg border border-white/[0.07] bg-white/[0.04] px-2.5 py-1 text-[10px] uppercase tracking-wider text-slate-400"
               >
                 {item}
               </span>
@@ -102,32 +113,19 @@ const ProjectCard = ({ title, miniTitle, description, stack, projectUrl }: Proje
           </div>
 
           {projectUrl && (
-            <button
-              onClick={handleViewProject}
-              className="mt-3 inline-flex items-center gap-1.5 rounded-2xl border border-white/15 bg-white/10 px-5 py-3 text-xs font-medium text-white transition-all duration-300 hover:bg-white/20 hover:border-white/25 backdrop-blur-md sm:mt-6 sm:px-6 sm:text-sm sm:gap-2"
+            <a
+              href={projectUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.04] py-2.5 text-xs font-medium text-slate-300 transition-all hover:bg-white/[0.08] hover:text-white"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-white"
-              >
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
-              </svg>
+              <ExternalLink size={13} />
               View Project
-            </button>
+            </a>
           )}
         </div>
-      </div>
-    </motion.article>
+      </article>
+    </motion.div>
   );
 };
 
@@ -135,27 +133,29 @@ const Projects = ({ isVisible }: { isVisible: boolean }) => {
   return (
     <motion.section
       id="projects"
-      className={`relative ${isVisible ? "hidden" : "block"} py-12 sm:py-16`}
+      className={`relative py-24 ${isVisible ? "hidden" : "block"}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.8, duration: 1 }}
     >
-      <div className="mx-auto max-w-5xl px-4 sm:px-5 lg:px-0">
-        <div className="text-center mb-10 sm:mb-14">
-          <p className="text-sm uppercase tracking-[0.35em] text-cyan-300 opacity-80">
-            Selected Work
+      <div className="mx-auto max-w-4xl px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 text-center"
+        >
+          <p className="text-xs uppercase tracking-[0.35em] text-violet-400">Selected Work</p>
+          <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Projects</h2>
+          <p className="mx-auto mt-4 max-w-lg text-sm text-slate-400">
+            AI tooling, systems engineering, and product-focused work.
           </p>
-          <h2 className="mt-4 text-3xl font-bold text-white sm:text-5xl">
-            Projects
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-400 sm:text-base">
-            A selection of product-focused systems, AI tooling, and engineering projects that showcase both design and technical execution.
-          </p>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-5 auto-rows-fr sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((card, idx) => (
-            <ProjectCard key={idx} {...card} />
+            <ProjectCard key={idx} {...card} index={idx} />
           ))}
         </div>
       </div>
