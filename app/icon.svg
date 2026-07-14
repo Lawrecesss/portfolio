@@ -1,14 +1,18 @@
-<svg width="100%" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" role="img" style="">
-<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">LHS monogram matching the lhshein.dev site theme</title>
-<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">A rounded square badge in near-black with a soft violet to blue radial glow, and the letters L, H, S fused tightly together in white, matching the dark portfolio site's color theme.</desc>
-<defs>
-<radialGradient id="glow" cx="50%" cy="45%" r="65%">
-<stop offset="0%" stop-color="#7F77DD" stop-opacity="0.55"/>
-<stop offset="60%" stop-color="#4A6FD6" stop-opacity="0.22"/>
-<stop offset="100%" stop-color="#0A0A0F" stop-opacity="0"/>
-</radialGradient>
-</defs>
-<rect x="195" y="55" width="290" height="290" rx="30" fill="#0A0A0F" style="fill:rgb(10, 10, 15);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<rect x="195" y="55" width="290" height="290" rx="30" fill="url(#glow)" style="stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="340" y="278" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="205" letter-spacing="-42" fill="#F5F5F7" style="fill:rgb(245, 245, 247);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, Helvetica, sans-serif;font-size:205px;font-weight:900;text-anchor:middle;dominant-baseline:auto">LHS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="55%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="13" fill="#08060f"/>
+  <path
+    d="M19 14 L19 50 L45 50"
+    stroke="url(#g)"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
 </svg>
