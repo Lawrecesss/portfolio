@@ -8,6 +8,7 @@ export default function Header({ isVisible }: { isVisible: boolean }) {
 
   const navItems = [
     { label: "About", target: "about-me" },
+    { label: "Experience", target: "experience" },
     { label: "Projects", target: "projects" },
     { label: "Contact", target: "contact" },
   ];

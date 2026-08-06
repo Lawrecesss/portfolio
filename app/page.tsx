@@ -4,6 +4,7 @@ import Header from "@/components/ui/Header";
 import { Hero } from "@/components/pages/Hero";
 import PageLadderTransition from "@/components/ui/PageLadderTransition";
 import AboutMe from "@/components/pages/AboutMe";
+import Experience from "@/components/pages/Experience";
 import { Footer } from "@/components/ui/Footer";
 import Projects from "@/components/pages/Projects";
 import ContactMe from "@/components/pages/ContactMe";
@@ -24,6 +25,7 @@ export default function Home() {
         <Header isVisible={isVisible} />
         <Hero isVisible={isVisible} />
         <AboutMe isVisible={isVisible} />
+        <Experience isVisible={isVisible} />
         <Projects isVisible={isVisible} />
         <ContactMe isVisible={isVisible} />
         <Footer isVisible={isVisible} />
