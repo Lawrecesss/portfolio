@@ -1,7 +1,7 @@
 # Portfolio
 
-Personal portfolio site — [Next.js](https://nextjs.org/) 14 (App Router), Tailwind, packaged as a
-single container for [Cloud Run](https://cloud.google.com/run).
+Personal portfolio site — [Next.js](https://nextjs.org/) 14 (App Router), Tailwind, Node 24 —
+packaged as a single container for [Cloud Run](https://cloud.google.com/run).
 
 ## Quick start
 
@@ -24,9 +24,9 @@ make help      # list every target
 
 ## Container
 
-The `Dockerfile` is a three-stage build (`deps` → `builder` → `runner`). The runner stage copies
-only `.next/standalone`, `.next/static` and `public`, runs as a non-root `nextjs` user, and starts
-`node server.js`. Image is ~227MB.
+The `Dockerfile` is a three-stage build (`deps` → `builder` → `runner`) on `node:24-alpine`. The
+runner stage copies only `.next/standalone`, `.next/static` and `public`, runs as a non-root
+`nextjs` user, and starts `node server.js`. Image is ~277MB.
 
 ```bash
 make docker-build   # build portfolio:dev

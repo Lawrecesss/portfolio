@@ -1,7 +1,7 @@
 {pkgs}: {
-  channel = "stable-23.11";
+  channel = "stable-25.05";
   packages = [
-    pkgs.nodejs_20
+    pkgs.nodejs_24
   ];
   idx.extensions = [
     
