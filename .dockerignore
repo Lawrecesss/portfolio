@@ -1,0 +1,33 @@
+# Dependencies and build output are produced inside the image
+node_modules
+.next
+out
+build
+coverage
+
+# VCS / tooling
+.git
+.gitignore
+.github
+.idx
+.vscode
+.idea
+
+# Local env
+.env
+.env.*.local
+.vercel
+
+# Docs / meta
+README.md
+Makefile
+Dockerfile
+.dockerignore
+*.md
+
+# Misc
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tsbuildinfo

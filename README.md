@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio
 
-## Getting Started
+Personal portfolio site — [Next.js](https://nextjs.org/) 14 (App Router), Tailwind, packaged as a
+single container for [Cloud Run](https://cloud.google.com/run).
 
-First, run the development server:
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+make install   # npm ci
+make dev       # dev server on http://localhost:3000
+make help      # list every target
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Target           | What it does                                      |
+| ---------------- | ------------------------------------------------- |
+| `make dev`       | Next.js dev server with hot reload (port 3000)     |
+| `make build`     | Production build (`output: "standalone"`)          |
+| `make start`     | Serve the production build locally                 |
+| `make lint`      | ESLint                                             |
+| `make typecheck` | `tsc --noEmit`                                     |
+| `make clean`     | Remove `.next`, `out`, `node_modules`              |
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Container
 
-## Learn More
+The `Dockerfile` is a three-stage build (`deps` → `builder` → `runner`). The runner stage copies
+only `.next/standalone`, `.next/static` and `public`, runs as a non-root `nextjs` user, and starts
+`node server.js`. Image is ~227MB.
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+make docker-build   # build portfolio:dev
+make docker-run     # run it on :8080, same contract as Cloud Run
+make docker-logs    # tail container logs
+make smoke          # build, run, probe /api/healthz and /, tear down
+make docker-stop
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The server binds `0.0.0.0` and reads `PORT` (default `8080`), which is what Cloud Run injects.
+`GET /api/healthz` returns `{"status":"ok", ...}` and backs the Docker `HEALTHCHECK`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Deploying to Cloud Run
 
-## Deploy on Vercel
+One-time setup — enables the APIs, creates the Artifact Registry repo, and configures Docker auth:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+gcloud auth login
+gcloud config set project <your-project-id>
+make gcp-setup
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Then, for each deploy:
+
+```bash
+make deploy          # build for linux/amd64, push to Artifact Registry, roll out
+make url             # print the service URL
+make cloud-logs      # tail Cloud Run logs
+```
+
+No local Docker? Let Cloud Build do the build instead:
+
+```bash
+make deploy-cloudbuild
+```
+
+### Configuration
+
+Every variable is overridable on the command line:
+
+| Variable     | Default                              |
+| ------------ | ------------------------------------ |
+| `PROJECT_ID` | current `gcloud config` project      |
+| `REGION`     | `asia-southeast1`                    |
+| `SERVICE`    | `portfolio`                          |
+| `AR_REPO`    | `containers`                         |
+| `TAG`        | short git SHA                        |
+| `PORT`       | `8080`                               |
+
+```bash
+make deploy REGION=us-central1 TAG=v1.2.0
+```
+
+The service deploys with 1 CPU / 512Mi, scaling 0→3 instances, and `--allow-unauthenticated` so
+it is publicly reachable.
+
+### Custom domain
+
+Map a domain once the service is live:
+
+```bash
+gcloud beta run domain-mappings create --service portfolio \
+  --domain lhshein.dev --region asia-southeast1
+```
+
+Then add the DNS records it prints at your registrar.
